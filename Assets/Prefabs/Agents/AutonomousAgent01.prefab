@@ -458,8 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagName: Agent01
-  distance: 5
-  maxAngle: 90
+  distance: 10
+  maxAngle: 360
 --- !u!1 &3048737727226456842
 GameObject:
   m_ObjectHideFlags: 0
