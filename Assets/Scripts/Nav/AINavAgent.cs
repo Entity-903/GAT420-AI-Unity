@@ -7,13 +7,24 @@ using UnityEngine;
 public class AINavAgent : AIAgent
 {
 	[SerializeField] private AINavPath path;
+	[SerializeField] private AINavNode startNode;
+
+	private void Start()
+	{
+		startNode ??= GetNearestAINavNode();
+		path.destination = startNode.transform.position;
+	}
 
 	void Update()
 	{
 		if (path.HasTarget())
 		{
-			Debug.DrawLine(transform.position, path.destination);
 			movement.MoveTowards(path.destination);
+		}
+		else
+		{
+			AINavNode destinationNode = AINavNode.GetRandomAINavNode();
+			path.destination = destinationNode.transform.position;
 		}
 	}
 
